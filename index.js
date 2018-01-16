@@ -33,6 +33,7 @@ var approveTender = function(req, res){
 	res.json({success: false, message: "Incorrect Tender ID"});
     } else{
 	Approved_Tenders[tenderID] = Applied_Tenders[tenderID];
+	delete Applied_Tenders[tenderID];
 	res.json({success: true});
     }
 }
@@ -48,16 +49,40 @@ var applyTender = function(req, res){
 }
 
 var viewAllTenders = function(req, res){
-    res.json({Issued: Issued_Tenders, Applied: Applied_Tenders, Approved: Approved_Tenders});
+    temp_issued_tenders = []
+    for (var item in Issued_Tenders){
+	temp_issued_tenders.push({ID: item, Description:Issued_Tenders[item]});
+    }
+    temp_applied_tenders = []
+    for (var item in Applied_Tenders){
+	temp_applied_tenders.push({ID: item, Description:Applied_Tenders[item]});
+    }
+    temp_approved_tenders = []
+    for (var item in Approved_Tenders){
+	temp_approved_tenders.push({ID: item, Description:Approved_Tenders[item]});
+    }
+    res.json({Issued: temp_issued_tenders, Applied: temp_applied_tenders, Approved: temp_approved_tenders});
 }
 var viewIssuedTenders = function(req, res){
-    res.json({Issued: Issued_Tenders});
+    temp_issued_tenders = []
+    for (var item in Issued_Tenders){
+	temp_issued_tenders.push({ID: item, Description:Issued_Tenders[item]});
+    }
+    res.json({Issued: temp_issued_tenders});
 }
 var viewApprovedTenders = function(req, res){
-    res.json({Approved: Approved_Tenders});
+    temp_approved_tenders = []
+    for (var item in Approved_Tenders){
+	temp_approved_tenders.push({ID: item, Description:Approved_Tenders[item]});
+    }
+    res.json({Approved: temp_approved_tenders});
 }
 var viewAppliedTenders = function(req, res){
-    res.json({Applied: Applied_Tenders});
+    temp_applied_tenders = []
+    for (var item in Applied_Tenders){
+	temp_applied_tenders.push({ID: item, Description:Applied_Tenders[item]});
+    }
+    res.json({Applied: temp_applied_tenders});
 }
 
 

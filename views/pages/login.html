@@ -90,14 +90,11 @@
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
   <script type="text/javascript">
     function pasuser(form) {
-if (form.email.value=="soku@gmail.com") { 
-if (form.password.value=="sex") {              
-location="https://ekaone.herokuapp.com/" 
-} else {
-alert("Invalid Password")
-}
-} else {  alert("Invalid UserID")
-}
+if (form.email.value=="admin@email.com" && form.password.value=="admin")
+ { location="http://ekaone.herokuapp.com/admin"}
+else if (form.email.value=="vendor@email.com" && form.password.value=="vendor")
+   { location="http://ekaone.herokuapp.com/vendor"} 
+else {alert("Invalid Password")} 
 }
 $('.submit').pauser()
   </script>

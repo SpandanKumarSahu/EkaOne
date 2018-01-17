@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>HUL</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<body>
+<!--
+ <nav>
+		<div class="nav-wrapper">
+<ul id="nav-mobile" class="side-nav fixed" style="transform: translateX(0px);">
+   <nav class="light-blue lighten-1" role="navigation"> 
+    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Logo</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="#">Navbar Link</a></li>
+      </ul>
+
+      <ul id="nav-mobile" class="side-nav">
+        <li><a href="#">Navbar Link</a></li>
+      </ul>
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div>
+   </nav> 
+</ul>
+</div>
+</nav>
+ -->
+
+<ul id="slide-out" class="side-nav">
+    <li><div class="user-view">
+      <div class="background teal lighten-2">
+        <img src="https://wallpaperbrowse.com/media/images/4447990-abstract-wallpapers.jpg">
+      </div>
+      <a href="#!user"><i class="material-icons">account_circle</i></a></a>
+      <a href="#!name"><span class="white-text name">Administrator 1</span></a>
+      <a href="#!email"><span class="white-text email">admin@gmail.com</span></a>
+    </div></li>
+    <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
+    <li><a href="#!">Second Link</a></li>
+    <li><div class="divider"></div></li>
+    <li><a class="subheader">Subheader</a></li>
+    <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+  </ul>
+  <div class="fixed-action-btn">
+  <a href="#" data-activates="slide-out" class="button-collapse btn-large blue"><i class="large material-icons">menu</i></a>
+	</div>
+  <div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+      <br><br>
+      <h1 class="header center black-text">HUL</h1>
+      <div class="row center">
+        <h5 class="header col s12 light">Admin control Page</h5>
+      <div class="row center">
+      	<h5 class="header center light-blue-text">Current Stock</h1>
+        <a href="#" id="download-button" class="btn-large waves-effect waves-light orange">Stock Value</a>
+      </div>
+      <br><br>
+
+    </div>
+  </div>
+
+
+  <div class="container">
+    <div class="section">
+
+      <!--   Icon Section   -->
+      <div class="row">
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center light-blue-text"><i class="material-icons">file_upload</i></h2>
+            <h5 class="center">Release Tender</h5>
+
+			    <div class="row">
+			    <form class="col s12" name="tenderform">
+			      <div class="row">
+			        <div class="input-field col s12">
+			          <input name="tender_name" id="tender_name" type="text" class="validate">
+			          <label for="tender_name">Tender ID</label>
+			        </div>
+			        <div class="input-field col s12">
+			          <input name="tender_desc" id="tender_desc" type="text" class="validate">
+			          <label for="tender_desc">Tender Description</label>
+			        </div>
+			      </div>
+			      
+			     <div class="center">  <button class="btn waves-effect waves-light" type="submit" onclick="tenderForm(this.form)">Submit
+			    <i class="material-icons right">send</i>
+			  </button>
+			</div>
+			    </form>
+			  </div>
+            <p class="light"></p>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center light-blue-text"><i class="material-icons">group</i></h2>
+            <h5 class="center">Innovation forecasting results</h5>
+
+            <p class="light">Test data</p>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center light-blue-text"><i class="material-icons">settings</i></h2>
+            <h5 class="center">Easy to work with</h5>
+
+            <p class="light">We have provided detailed documentation as well as specific code examples to help new users get started. We are also always open to feedback and can answer any questions a user may have about Materialize.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <br><br>
+  </div>
+
+  <footer class="page-footer orange">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Company Bio</h5>
+          <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
+
+
+        </div>
+<!--         <div class="col l3 s12">
+          <h5 class="white-text">Settings</h5>
+          <ul>
+            <li><a class="white-text" href="#!">Link 1</a></li>
+            <li><a class="white-text" href="#!">Link 2</a></li>
+            <li><a class="white-text" href="#!">Link 3</a></li>
+            <li><a class="white-text" href="#!">Link 4</a></li>
+          </ul>
+        </div> -->
+<!--         <div class="col l3 s12">
+          <h5 class="white-text">Connect</h5>
+          <ul>
+            <li><a class="white-text" href="#!">Link 1</a></li>
+            <li><a class="white-text" href="#!">Link 2</a></li>
+            <li><a class="white-text" href="#!">Link 3</a></li>
+            <li><a class="white-text" href="#!">Link 4</a></li>
+          </ul>
+        </div>
+      </div> -->
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+      </div>
+    </div>
+  </footer>
+
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+  <script>
+  const url = 'http://ekaone.herokuapp.com/stock';
+fetch(url)
+.then((resp) => resp.json())
+.then(function(data) {
+let d = data.stock;
+console.log(data.stock)
+document.getElementById('download-button').innerHTML = d
+
+})
+.catch(function(error) {
+console.log(error);
+}); 
+  </script>
+<script> $('.datepicker').pickadate({
+    selectMonths: true, // Creates a dropdown to control month
+    selectYears: 15, // Creates a dropdown of 15 years to control year,
+    today: 'Today',
+    clear: 'Clear',
+    close: 'Ok',
+    closeOnSelect: false // Close upon selecting a date,
+  });</script>
+<!--   <script>
+  	var formData = JSON.stringify($("#tenderform").serializeArray());
+  	console.log(formData.tender_name)
+  	$.ajax({
+  type: "POST",
+  url: "http://ekaone.herokuapp.com/",
+  data: formData,
+  success: function(){},
+  dataType: "json",
+  contentType : "application/json"
+});
+  </script> -->
+<script>
+  function tenderForm() {
+    var t_ID = document.forms["tenderform"]["tender_name"].value;
+    var t_Desc = document.forms["tenderform"]["tender_desc"].value;
+    s = "http://ekaone.herokuapp.com/admin/issueTender?tenderID="+t_ID+"&tender="+t_Desc;
+    console.log(t_ID);
+    console.log(s);
+    // var wnd = window.open(s);
+    // wnd.close();
+    // e.preventDefault();
+    $.get(s)
+
+}
+</script>
+  </body>
+</html>

@@ -41,11 +41,9 @@
       <a href="#!name"><span class="white-text name">Administrator 1</span></a>
       <a href="#!email"><span class="white-text email">admin@gmail.com</span></a>
     </div></li>
-    <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
-    <li><a href="#!">Second Link</a></li>
+    <li><a href="http://ekaone.herokuapp.com/"><i class="material-icons">power_settings_new</i>Log Out</a></li>
+    <li><a href="#!"><i class="material-icons">settings</i>Account Settings</a></li>
     <li><div class="divider"></div></li>
-    <li><a class="subheader">Subheader</a></li>
-    <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
   </ul>
   <div class="fixed-action-btn">
   <a href="#" data-activates="slide-out" class="button-collapse btn-large blue"><i class="large material-icons">menu</i></a>
@@ -53,13 +51,20 @@
   <div class="section no-pad-bot" id="index-banner">
     <div class="container">
       <br><br>
-      <h1 class="header center black-text">HUL</h1>
+      <h1 class="header center black-text"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLcr1ol53to1EwwPfGkAFpvGgzj2jXu1iQkjgUX5zUXDtdiPwv"></h1>
       <div class="row center">
-        <h5 class="header col s12 light">Admin control Page</h5>
-      <div class="row center">
-      	<h5 class="header center light-blue-text">Current Stock</h1>
-        <a href="#" id="download-button" class="btn-large waves-effect waves-light orange">Stock Value</a>
+        <h5 class="header col s12 light">Administrator control Page</h5>
+        <br><br>
+        <div class="row">
+      <div class="col s6">
+      	<h5 class="header center light-blue-text">Current Stock</h5>
+        <a href="#" id="stock_button" class="btn-large waves-effect waves-light orange">Stock Value</a>
       </div>
+      <div class="col s6">
+        <h5 class="header center light-blue-text">Sensor</h5>
+        <a href="#" id="sensor" class="btn-large waves-effect waves-light orange">Sensor Data</a>
+      </div>
+      </div
       <br><br>
 
     </div>
@@ -71,7 +76,7 @@
 
       <!--   Icon Section   -->
       <div class="row">
-        <div class="col s12 m4">
+        <div class="col s12 m12">
           <div class="icon-block">
             <h2 class="center light-blue-text"><i class="material-icons">file_upload</i></h2>
             <h5 class="center">Release Tender</h5>
@@ -92,28 +97,38 @@
 			     <div class="center">  <button class="btn waves-effect waves-light" type="submit" onclick="tenderForm(this.form)">Submit
 			    <i class="material-icons right">send</i>
 			  </button>
-			</div>
+			 </div>
 			    </form>
 			  </div>
             <p class="light"></p>
           </div>
         </div>
 
-        <div class="col s12 m4">
+         <div class="col s12 m4">
           <div class="icon-block">
-            <h2 class="center light-blue-text"><i class="material-icons">group</i></h2>
-            <h5 class="center">Innovation forecasting results</h5>
-
-            <p class="light">Test data</p>
+            <h2 class="center light-blue-text"><i class="material-icons">list</i></h2>
+            <h5 class="center">Issued Tenders</h5>
+            <div id="T_issue"></div>
+            <p class="light"></p>
           </div>
         </div>
 
+
         <div class="col s12 m4">
           <div class="icon-block">
-            <h2 class="center light-blue-text"><i class="material-icons">settings</i></h2>
-            <h5 class="center">Easy to work with</h5>
+            <h2 class="center light-blue-text"><i class="material-icons">playlist_add_check</i></h2>
+            <h5 class="center">Approved Tenders</h5>
+            <div id="T_approve"></div>
+            <p class="light"></p>
+          </div>
+        </div>
 
-            <p class="light">We have provided detailed documentation as well as specific code examples to help new users get started. We are also always open to feedback and can answer any questions a user may have about Materialize.</p>
+         <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center light-blue-text"><i class="material-icons">check_box_outline_blank</i></h2>
+            <h5 class="center">Applied Tenders</h5>
+            <div id="T_applied"></div>
+            <p class="light"></p>
           </div>
         </div>
       </div>
@@ -126,8 +141,8 @@
     <div class="container">
       <div class="row">
         <div class="col l6 s12">
-          <h5 class="white-text">Company Bio</h5>
-          <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
+          <h5 class="white-text">11 Musketeers</h5>
+          <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job. It was a awesome experience.</p>
 
 
         </div>
@@ -169,21 +184,34 @@ fetch(url)
 .then(function(data) {
 let d = data.stock;
 console.log(data.stock)
-document.getElementById('download-button').innerHTML = d
+document.getElementById('stock_button').innerHTML = d
+
+})
+.catch(function(error) {
+console.log(error);
+}); 
+
+const url2 = 'http://ekaone.herokuapp.com/sensor'; 
+fetch(url2) 
+.then((resp) => resp.json())
+.then(function(data) {
+let d = data.sensor;
+console.log(data.sensor)
+ document.getElementById('sensor').innerHTML = d
 
 })
 .catch(function(error) {
 console.log(error);
 }); 
   </script>
-<script> $('.datepicker').pickadate({
+<!-- <script> $('.datepicker').pickadate({
     selectMonths: true, // Creates a dropdown to control month
     selectYears: 15, // Creates a dropdown of 15 years to control year,
     today: 'Today',
     clear: 'Clear',
     close: 'Ok',
     closeOnSelect: false // Close upon selecting a date,
-  });</script>
+  });</script> -->
 <!--   <script>
   	var formData = JSON.stringify($("#tenderform").serializeArray());
   	console.log(formData.tender_name)
@@ -196,6 +224,7 @@ console.log(error);
   contentType : "application/json"
 });
   </script> -->
+<script></script>
 <script>
   function tenderForm() {
     var t_ID = document.forms["tenderform"]["tender_name"].value;
@@ -207,8 +236,82 @@ console.log(error);
     // wnd.close();
     // e.preventDefault();
     $.get(s)
-
 }
+</script>
+<script>
+  const urlIT = 'http://ekaone.herokuapp.com/admin/viewIssuedTenders';
+fetch(urlIT)
+.then((resp) => resp.json())
+.then(function(data) {
+let d = data.Issued;
+console.log(data.Issued)
+var htmlText = '';
+
+            for ( var key in data.Issued ) {
+                htmlText += '<div class="row">';
+                htmlText += '<div class= "col s4 center">ID: ' + d[key].ID + '</div>';
+                htmlText += '<div class="col s8 center">' + d[key].Description + '</div>'
+                htmlText += '</div>';
+            }
+
+            $('#T_issue').append(htmlText);
+
+})
+.catch(function(error) {
+console.log(error);
+});
+
+const urlAT = 'http://ekaone.herokuapp.com/admin/viewAppliedTenders';
+fetch(urlAT)
+.then((resp) => resp.json())
+.then(function(data) {
+let d = data.Applied;
+console.log(data.Applied)
+var htmlText = '';
+
+            for ( var key in d ) {
+                htmlText += '<div class="row">';
+                htmlText += '<div class= "col s3">ID: ' + d[key].ID + '</div>';
+                htmlText += '<div class="col s5 center">' + d[key].Description + '</div>'
+                htmlText += '<div class="col s4"> <button class="btn waves-effect waves-light" type="submit" onclick="T_approvebyid(' + d[key].ID + ')"> <i class="small material-icons">check</i></button></div></div>';
+            }
+
+            $('#T_applied').append(htmlText);
+
+})
+.catch(function(error) {
+console.log(error);
+});
+
+function T_approvebyid(ID)
+{
+  st = 'http://ekaone.herokuapp.com/admin/approveTender?tenderID='+ID;
+  console.log(st);
+  $.get(st)
+}
+
+const urlAVT = 'http://ekaone.herokuapp.com/admin/viewApprovedTenders';
+fetch(urlAVT)
+.then((resp) => resp.json())
+.then(function(data) {
+let d = data.Approved;
+console.log(data.Approved)
+var htmlText = '';
+
+            for ( var key in data.Approved ) {
+                htmlText += '<div class="row">';
+                htmlText += '<div class= "col s4  center">ID: ' + d[key].ID + '</div>';
+                htmlText += '<div class="col s8 center">' + d[key].Description + '</div>'
+                htmlText += '</div>';
+            }
+
+            $('#T_approve').append(htmlText);
+
+})
+.catch(function(error) {
+console.log(error);
+});
+
 </script>
   </body>
 </html>
